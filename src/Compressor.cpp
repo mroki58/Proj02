@@ -2,8 +2,14 @@
 
 void Compressor::Process(std::string & inputStr)
 {
+    if(inputStr.size() == 0)
+    {
+        return; // nie powoduje bledu w linijce nr 23, przy pustym stringu
+    }
+
     int noSameNeighborLetters = 1;
     std::string result = "";
+
     for(int i = 0; i < inputStr.length() - 1; ++i)
     {
         if(inputStr[i] == inputStr[i+1])
